@@ -1,26 +1,129 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --biru: #1e6fe0;
+  --biru-tua: #0a2a5e;
+  --biru-muda: #eaf3ff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f3f8ff;
+  color: #1e293b;
+  font-family: Arial, sans-serif;
 }
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* banner gradasi biru */
+.header {
+  background: linear-gradient(135deg, var(--biru-tua), var(--biru));
+  color: white;
+  padding: 28px;
+  border-radius: 20px;
+}
+.header h1 { margin: 0 0 6px; }
+.header p { margin: 0; }
+
+/* judul section + tombol tambah, sejajar kiri-kanan */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 16px;
+}
+.toolbar h2 { margin: 0; color: var(--biru-tua); }
+
+/* tombol, dipakai untuk <button> dan <Link> */
+.btn {
+  display: inline-block;
+  background: var(--biru);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--biru-tua); }
+/* kumpulan tombol di kanan toolbar */
+.tombol-kanan {
+  display: flex;
+  gap: 8px;
+}
+
+/* tombol versi putih dengan garis biru, buat Login dan Register */
+.btn-putih {
+  background: white;
+  color: var(--biru);
+  border: 1px solid var(--biru);
+}
+.btn-putih:hover {
+  background: var(--biru-muda);
+}
+
+/* form tambah dan edit: input ditumpuk ke bawah */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.form input,
+.form select {
+  padding: 12px;
+  border: 1px solid #cfe0f7;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* kartu otomatis menyesuaikan lebar layar */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.card h3 { margin: 0 0 8px; }
+.card p { margin: 8px 0 0; font-size: 14px; }
+
+/* label kecil untuk negara dan status */
+.badge {
+  display: inline-block;
+  background: var(--biru-muda);
+  color: var(--biru);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* baris Edit + Hapus */
+.aksi {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+.aksi a { font-size: 14px; color: var(--biru); text-decoration: none; }
+.btn-hapus {
+  background: none;
+  border: none;
+  color: #e53935;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.kosong { color: #64748b; font-style: italic; }

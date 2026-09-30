@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" 
+}
+
+model Travel {
+  id          Int      @id @default(autoincrement())
+  destination String   // Nama Tempat/Destinasi (contoh: "Labuan Bajo")
+  country     String   // Negara (contoh: "Indonesia")
+  budget      Int      // Estimasi Budget dalam Rupiah/Nominal
+  status      String   // Status (contoh: "Planned" atau "Visited")
+  notes       String?  // Catatan opsional (contoh: "Naik kapal pas sunset")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
